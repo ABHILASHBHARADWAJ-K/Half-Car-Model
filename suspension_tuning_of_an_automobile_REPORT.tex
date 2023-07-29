@@ -1,0 +1,270 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Suspension Tuning of an Automobile:A Critical Data Analysis\\
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Suspension Tuning of an Automobile:A Critical Data Analysis\\
+
+
+}
+
+\author{\IEEEauthorblockN{Abhilash Bharadwaj}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore,India \\
+abhilashbharadwaj.201me227@nitk.edu}
+\and
+\IEEEauthorblockN{Dhiren V Bhandary}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore,India \\
+dhirenbhandary.211me213@nitk.edu.in}
+\and
+\IEEEauthorblockN{Adithya Srihari Rao}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore,India \\
+adithyasriharirao.211me203@nitk.edu.in}
+\and
+\IEEEauthorblockN{Prathamesh Kiran Anvekar}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore, India \\
+prathameshkirananvekar.211me336@nitk.edu.in}
+}
+
+\maketitle
+
+\begin{abstract}
+Suspension system in the vehicles often decides the comfort of the driver and passengers and it is governed by simplified set four differential equations which accounts for the vertical motion of the sprung and unsprung masses of the vehicle along with body pitch. Pitch motion is taken into account with respect to the angle of tilt with respect to the centre of mass. 
+\end{abstract}
+
+\begin{IEEEkeywords}
+Suspension system, pitch, sprung unsprung masses, damping ratio, stabilization time, half car model, quarter car model, 3D data plotting.
+\end{IEEEkeywords}
+
+\section{Introduction}
+ Suspension in an automobile refers to the system of tires, tire air, springs, shock absorbers(dampers) and linkages that connects a vehicle to its wheels and allows relative motion between the two. It works on the principle of force dissipation which involves the dissipation of force into heat thus mitigating its impact on the cabin. It is responsible for ride handling and ride quality of an automobile and should be a finely tuned system in order for the vehicle to perform at its optimal efficiency. In this paper, modelling of the suspension system is done by making use of the half car and quarter car model.This paper provides a detailed discussion of fine tuning the suspension system for varying road profiles by altering the values of damping ratio zeta(\begin{math}\zeta \end{math}). The optimum values are calculated by making use of the stabilization times for various \begin{math}\zeta \end{math} values and comparing them against ISO values of ride comfort.
+
+
+
+\section{Methodology}
+In order to optimise the suspension system, we focus our efforts to obtaining the optimum values of the damping coefficients for the front and rear shock absorbers. We do this by constructing the quarter car and half car model on Simulink and simulate various road profiles. We obtain the displacement and time values for various values of \begin{math}\zeta \end{math} between 0.25 and 0.35. 
+In order for the suspension system to be optimised, the damping coefficients should provide damping as close to the critical case as possible. An underdamped system will cause a major loss in ride comfort while an overdamped system will cause a loss of control while handling the vehicle. In order to optimise our suspension system, we make use of the stabilisation time as the deciding parameter. We use 3D plotting to obtain the minimum time and select our damping  coefficients accordingly.
+\section{Implementation}
+
+\subsection{Development of a Quarter Car Model }
+
+ A Quarter Car Model(QCM) is developed in order to analyse the dynamics of the system under step road input. Differential Equations governing the behaviour of the QCM are developed taking into consideration various parameters such as spring constant, damping coefficient, mass of the sprung and unsprung masses. After the mathematical model of the QCM is developed, it is programmed on SimuLink and the data of displacement vs time of the sprung mass is observed. 
+ \[ m_1.x_1''= k_1.(x_2-x_1)+ c_1.(x_2'-x_1') \]
+ \[ m_2.x_2''=k_2.(u-x_2)+ c_2.(u'-x_2')-k_1.(x_2-x_1)- c_1.(x_2'-x_1') \]
+ \begin{math}m_1(kg)\end{math}=  Mass of the quarter car\linebreak
+
+\begin{math}x_1(m)\end{math}= Displacement of sprung mass\linebreak
+
+\begin{math}k_1(N/m)\end{math}=Spring constant of the suspension system\linebreak
+
+\begin{math}c_1(Ns/m)\end{math}=Damping coefficient of the suspension system\linebreak
+
+\begin{math}x_2(m)\end{math}=Displacement of the wheel and tyre\linebreak
+
+\begin{math}k_2(N/m)\end{math}=Spring constant of the wheel and tyre\linebreak
+
+\begin{math}c_2(Ns/m)\end{math}=Damping coefficient of the wheel and tyre\linebreak
+
+\begin{math}u(m)\end{math}=Road Profile
+                  
+
+\subsection{Development of a Half Car Model }
+Following the development of the Quarter car model, a Half Car Model is then developed taking into consideration the constraints involved in a Half Car Model,i.e, the Front and Rear wheels are connected by the body of the car.The half car model provides us with more accurate and realistic results than the quarter car model as it involves 4 degrees of freedom compared to the quarter car's 1. The differential equations are then developed for the model. These equations are used to program a SimuLink model and data is obtained by inputting various road profiles. We now vary the values of damping ratio (\begin{math}\zeta \end{math}) by 0.002 using a while loop on MATLAB  for each road profile. The data is then extracted between the interval of 0.25$\le$ \begin{math}\zeta \end{math} $\le$ 0.35. The equations that govern the half car model are as follows,
+
+ \[ F_f=2K_f.(L_f\theta - (z+h))+ 2C_f.(L_f\theta'-z') \]
+\[ M_3 = -L_f.F_f \]
+\[F_r = -2.K_r(L_r\theta + (z+h)) - 2.C_r(L_r\theta' + z')\]
+ \[M_r = L_r.F_r\]
+\[ m_b.z'' = F_f + F_r - m_b.g\]
+\[I_yy.\theta'' = M_f + M_r + M_y\]
+ 
+where :\linebreak
+\begin{math} F_j,F_r \end{math}= upward force on body from front/rear suspension\linebreak
+\begin{math} K_f,K_r \end{math} = front and rear suspension spring constant\linebreak
+\begin{math} C_1,C_2 \end{math} = front and rear suspension damping rate\linebreak
+\begin{math} L_1,L_2 \end{math} = horizontal distance from gravity center to front/rear suspension\linebreak
+\begin{math} \theta, \theta' \end{math} = pitch (rotational) angle and its rate of change\linebreak
+z,z' = bounce (vertical) distance and its rate of change\linebreak
+h = road height\linebreak
+\begin{math}M_1,M_r\end{math} = Pitch moment due to front/rear suspension\linebreak
+\begin{math}m_b\end{math} = body mass\linebreak
+\begin{math}M_y\end{math} = pitch moment induced by vehicle acceleration\linebreak
+\begin{math}T_yy\end{math} = body moment of inertia about gravity center\linebreak
+\subsection{Plotting and Data Analysis}
+ Data is refined to get the values of stabilization times for various damping coefficients. Stabilization time is defined as the time taken for the vehicle displacement to achieve 2\begin{math}\%\end{math} of its maximum amplitude. We compile the data for various road profiles on Excel. We then make use of python to generate a regression model using the said data. In order to ensure better curve fitting, we make use of the second degree regression polynomial generator on python. The resulting curve is then taken and plotted on a 3D graph from which we obtain the results of our optimisation study.
+
+
+
+\section{Results}
+We create 3 dimensional plots with the front and rear damping coefficients plotted against time for various road profiles.The time taken for the displacement to reach 2\begin{math}\%\end{math} of its amplitude is calculated for various values of the damping coefficients and the optimal values are chosen as per these plots.
+
+\section{Future Work}
+The results can be further refined by developing the full car model and obtaining plots for various road profiles. The data obtained from these models can be used in conjunction with emerging technologies such as magnetorheological fluids in order to provide real time damper optimisation in response to various road profiles encountered by the vehicle during travel.  
+
+\section*{Acknowledgments}
+
+We would like to thank the Student Branch of IEEE NITK for giving us an opportunity to work on this project and gain a better understanding of the Fundamentals of Vehicle Suspension.
+
+
+
+\begin{thebibliography}{00}
+\bibitem{b1}https://in.mathworks.com/matlabcentral/fileexchange/106045-half-car-model?
+\bibitem{b2}\begin{math}https://youtu.be/xiR_WORuILQ\end{math} 
+\bibitem{b3} Fundamentals of vehicle dynamics by Thomas D. Gillespie.
+\bibitem{b4} Calvo, J. & Diaz, V. and San Román, J. (2005).Establishing inspection criteria to verify the dynamic behaviour of the vehicle suspension system by a platform vibrating test bench. International Journal of Vehicle Design - INT J VEH DES. 38. 10.1504/IJVD.2005.007623.
+
+
+\end{thebibliography}
+
+
+\end{document}
+
+}
+
+\author{\IEEEauthorblockN{Abhilash Bharadwaj}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore,India \\
+abhilashbharadwaj.201me227@nitk.edu}
+\and
+\IEEEauthorblockN{Dhiren V Bhandary}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore,India \\
+dhirenbhandary.211me213@nitk.edu.in}
+\and
+\IEEEauthorblockN{Adithya Srihari Rao}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore,India \\
+adithyasriharirao.211me203@nitk.edu.in}
+\and
+\IEEEauthorblockN{Prathamesh Kiran Anvekar}
+\IEEEauthorblockA{\textit{Mechanical Engineering} \\
+\textit{IEEE NITK}\\
+Mangalore, India \\
+prathameshkirananvekar.211me336@nitk.edu.in}
+}
+
+\maketitle
+
+\begin{abstract}
+Suspension system in the vehicles often decides the comfort of the driver and passengers and it is governed by simplified set four differential equations which accounts for the vertical motion of the sprung and unsprung masses of the vehicle along with body pitch. Pitch motion is taken into account with respect to the angle of tilt with respect to the centre of mass. 
+\end{abstract}
+
+\begin{IEEEkeywords}
+Suspension system, pitch, sprung unsprung masses, damping ratio, stabilization time, half car model, quarter car model, 3D data plotting.
+\end{IEEEkeywords}
+
+\section{Introduction}
+ Suspension in an automobile refers to the system of tires, tire air, springs, shock absorbers(dampers) and linkages that connects a vehicle to its wheels and allows relative motion between the two. It works on the principle of force dissipation which involves the dissipation of force into heat thus mitigating its impact on the cabin. It is responsible for ride handling and ride quality of an automobile and should be a finely tuned system in order for the vehicle to perform at its optimal efficiency. In this paper, modelling of the suspension system is done by making use of the half car and quarter car model.This paper provides a detailed discussion of fine tuning the suspension system for varying road profiles by altering the values of damping ratio zeta(\begin{math}\zeta \end{math}). The optimum values are calculated by making use of the stabilization times for various \begin{math}\zeta \end{math} values and comparing them against ISO values of ride comfort.
+
+
+
+\section{Methodology}
+In order to optimise the suspension system, we focus our efforts to obtaining the optimum values of the damping coefficients for the front and rear shock absorbers. We do this by constructing the quarter car and half car model on Simulink and simulate various road profiles. We obtain the displacement and time values for various values of \begin{math}\zeta \end{math} between 0.25 and 0.35. 
+In order for the suspension system to be optimised, the damping coefficients should provide damping as close to the critical case as possible. An underdamped system will cause a major loss in ride comfort while an overdamped system will cause a loss of control while handling the vehicle. In order to optimise our suspension system, we make use of the stabilisation time as the deciding parameter. We use 3D plotting to obtain the minimum time and select our damping  coefficients accordingly.
+\section{Implementation}
+
+\subsection{Development of a Quarter Car Model }
+
+ A Quarter Car Model(QCM) is developed in order to analyse the dynamics of the system under step road input. Differential Equations governing the behaviour of the QCM are developed taking into consideration various parameters such as spring constant, damping coefficient, mass of the sprung and unsprung masses. After the mathematical model of the QCM is developed, it is programmed on SimuLink and the data of displacement vs time of the sprung mass is observed. 
+ \[ m_1.x_1''= k_1.(x_2-x_1)+ c_1.(x_2'-x_1') \]
+ \[ m_2.x_2''=k_2.(u-x_2)+ c_2.(u'-x_2')-k_1.(x_2-x_1)- c_1.(x_2'-x_1') \]
+ \begin{math}m_1(kg)\end{math}=  Mass of the quarter car\linebreak
+
+\begin{math}x_1(m)\end{math}= Displacement of sprung mass\linebreak
+
+\begin{math}k_1(N/m)\end{math}=Spring constant of the suspension system\linebreak
+
+\begin{math}c_1(Ns/m)\end{math}=Damping coefficient of the suspension system\linebreak
+
+\begin{math}x_2(m)\end{math}=Displacement of the wheel and tyre\linebreak
+
+\begin{math}k_2(N/m)\end{math}=Spring constant of the wheel and tyre\linebreak
+
+\begin{math}c_2(Ns/m)\end{math}=Damping coefficient of the wheel and tyre\linebreak
+
+\begin{math}u(m)\end{math}=Road Profile
+                  
+
+\subsection{Development of a Half Car Model }
+Following the development of the Quarter car model, a Half Car Model is then developed taking into consideration the constraints involved in a Half Car Model,i.e, the Front and Rear wheels are connected by the body of the car.The half car model provides us with more accurate and realistic results than the quarter car model as it involves 4 degrees of freedom compared to the quarter car's 1. The differential equations are then developed for the model. These equations are used to program a SimuLink model and data is obtained by inputting various road profiles. We now vary the values of damping ratio (\begin{math}\zeta \end{math}) by 0.002 using a while loop on MATLAB  for each road profile. The data is then extracted between the interval of 0.25$\le$ \begin{math}\zeta \end{math} $\le$ 0.35. The equations that govern the half car model are as follows,
+
+ \[ F_f=2K_f.(L_f\theta - (z+h))+ 2C_f.(L_f\theta'-z') \]
+\[ M_3 = -L_f.F_f \]
+\[F_r = -2.K_r(L_r\theta + (z+h)) - 2.C_r(L_r\theta' + z')\]
+ \[M_r = L_r.F_r\]
+\[ m_b.z'' = F_f + F_r - m_b.g\]
+\[I_yy.\theta'' = M_f + M_r + M_y\]
+ 
+where :\linebreak
+\begin{math} F_j,F_r \end{math}= upward force on body from front/rear suspension\linebreak
+\begin{math} K_f,K_r \end{math} = front and rear suspension spring constant\linebreak
+\begin{math} C_1,C_2 \end{math} = front and rear suspension damping rate\linebreak
+\begin{math} L_1,L_2 \end{math} = horizontal distance from gravity center to front/rear suspension\linebreak
+\begin{math} \theta, \theta' \end{math} = pitch (rotational) angle and its rate of change\linebreak
+z,z' = bounce (vertical) distance and its rate of change\linebreak
+h = road height\linebreak
+\begin{math}M_1,M_r\end{math} = Pitch moment due to front/rear suspension\linebreak
+\begin{math}m_b\end{math} = body mass\linebreak
+\begin{math}M_y\end{math} = pitch moment induced by vehicle acceleration\linebreak
+\begin{math}T_yy\end{math} = body moment of inertia about gravity center\linebreak
+\subsection{Plotting and Data Analysis}
+ Data is refined to get the values of stabilization times for various damping coefficients. Stabilization time is defined as the time taken for the vehicle displacement to achieve 2\begin{math}\%\end{math} of its maximum amplitude. We compile the data for various road profiles on Excel. We then make use of python to generate a regression model using the said data. In order to ensure better curve fitting, we make use of the second degree regression polynomial generator on python. The resulting curve is then taken and plotted on a 3D graph from which we obtain the results of our optimisation study.
+
+
+
+\section{Results}
+We create 3 dimensional plots with the front and rear damping coefficients plotted against time for various road profiles.The time taken for the displacement to reach 2\begin{math}\%\end{math} of its amplitude is calculated for various values of the damping coefficients and the optimal values are chosen as per these plots.
+
+\section{Future Work}
+The results can be further refined by developing the full car model and obtaining plots for various road profiles. The data obtained from these models can be used in conjunction with emerging technologies such as magnetorheological fluids in order to provide real time damper optimisation in response to various road profiles encountered by the vehicle during travel.  
+
+\section*{Acknowledgments}
+
+We would like to thank the Student Branch of IEEE NITK for giving us an opportunity to work on this project and gain a better understanding of the Fundamentals of Vehicle Suspension.
+
+
+
+\begin{thebibliography}{00}
+\bibitem{b1}https://in.mathworks.com/matlabcentral/fileexchange/106045-half-car-model?
+\bibitem{b2}\begin{math}https://youtu.be/xiR_WORuILQ\end{math} 
+\bibitem{b3} Fundamentals of vehicle dynamics by Thomas D. Gillespie.
+\bibitem{b4} Calvo, J. & Diaz, V. and San Román, J. (2005).Establishing inspection criteria to verify the dynamic behaviour of the vehicle suspension system by a platform vibrating test bench. International Journal of Vehicle Design - INT J VEH DES. 38. 10.1504/IJVD.2005.007623.
+
+
+\end{thebibliography}
+
+
+\end{document}
