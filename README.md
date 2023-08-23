@@ -38,9 +38,10 @@ A regular spring mass damping system is taken as the inspiration for setting up 
 
 {Add image of QCM SIMULINK model and its generated graphs from scope}
 **
-![image-1](/virtual-expo/assets/img/piston/Suspension_Tuning/QCM_SIMULINK.png)
 
-![image-2](/virtual-expo/assets/img/piston/Suspension_Tuning/comparision.png)
+![image-1](QCM_SIMULINK)
+
+![image-2](comparision_QCM)
 **
 >### Upgrade to Half Car Model
   
