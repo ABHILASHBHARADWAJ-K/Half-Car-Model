@@ -29,34 +29,49 @@ Suspension system in the vehicles often decides the comfort of the driver and pa
 
 >## Project Work
 
-  
+It consists of four major steps. 
+1. Development of Quarter Car Model
+2. Upgrading to Half Car Model
+3. Data Extraction and Refining
+4. Optimization and Implementation
 
   
 
 >### Development of Quarter Car Model
 A regular spring mass damping system is taken as the inspiration for setting up the physical equation of the Quarter-Car which literally means one - fourth of the vehicle. An improvement on the single degree of freedom system has led to the Quarter Car Model by adding an additional mass called as 'unsprung mass' which is a dual degree of freedom system. Models were built in Simulink for better user interactive experience. Model assumes a particular step input and the motion of the sprung and unsprung masses are as shown in the figure. 
 
-{Add image of QCM SIMULINK model and its generated graphs from scope}
-**
 
-![image-1](QCM_SIMULINK)
 
-![image-2](comparision_QCM)
-**
+![Quarter Car Model in Simulink](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/QCM_SIMULINK.png)
+
+![Comparision between sprung and unsprung masses in QCM](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/comparision_QCM.png)
+
 >### Upgrade to Half Car Model
   
-Half Car Model is the extension of the Quarter Car Model where the front and rear ends of the unsprung masses are considered along with the pitch motion of the sprung mass which is a 4-Degree of Freedom system to extract the data with improved accuracy.
+Half Car Model is the extension of the Quarter Car Model where the front and rear ends of the unsprung masses are considered along with the pitch motion of the sprung mass which is a 4-Degree of Freedom system to extract the data with improved accuracy. 
+Four degrees of freedom include the verical motions of two unsprung masses and combined sprung mass along with the picth motion of the body. 
+For given spring stiffness values, damping coefficients were varied over a range of values which is decided by the preset damping ratio for a particular road profile. 
+
+![Half Car Model](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/HCM_Simulink.png)
+
+![Road Profiles](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/Roadprofiles_HCM.png)
+
 
 >### Data Extraction & Refining
 
-Data has been collected for parametrised road input and velocity with different damping factors which give various stabilisation times for different damping coefficients. Body is considered stable when the displacement amplitude reaches 2% of its max amplitude. Data is refined with this constraint considering the values of different stabilisation times with various damping coefficients and applied the regression analysis to generate a 3 dimensional surface form the generated data. 
+Data has been collected for parametrised road input and velocity with different damping factors which give various stabilisation times for different damping coefficients. Body is considered stable when the displacement amplitude reaches 2% of its max amplitude. Time-Amplitude data has been extracted in the excel sheet for various combinations of C1 and C2 for given road profile and for every (C1, C2) pair, there is an associated stabilization time (t) that is marked and listed out in a seperate sheet. 
+
+
 
 
   
 
 >### Optimization & Implementation
 
-Regression analysis is performed over the refined data to plot a 3-dimensional surface and the least stabilisation time is found over the surface with particular set of values of damping coefficients in the front and rear ends of the vehicle with the point of projection on the plane of damping coefficients. Further, in actual implementation dampers are fed with specific pressures inside the chambers to give that damping factor which makes the vehicle to stabilise faster. 
+The choice of degree of polynomial for regression is made in such a way as neither to underfit nor overfit the surface and is applied over the refined data which has the values of (C1, C2, t) triads to plot a 3-dimensional surface and the least stabilisation time is found over the surface with particular set of values of damping coefficients in the front and rear ends of the vehicle with the point of projection on the plane of damping coefficients. Further, in actual implementation dampers are fed with specific pressures inside the chambers to give that damping factor which makes the vehicle to stabilise faster. 
+
+![3-D Polynomial Regression Model](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/Result_HCM.png)
+
 
 >## Conclusion
 
