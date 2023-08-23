@@ -59,7 +59,7 @@ For given spring stiffness values, damping coefficients were varied over a range
 
 >### Data Extraction & Refining
 
-Data has been collected for parametrised road input and velocity with different damping factors which give various stabilisation times for different damping coefficients. Body is considered stable when the displacement amplitude reaches 2% of its max amplitude. Time-Amplitude data has been extracted in the excel sheet for various combinations of C1 and C2 for given road profile and for every (C1, C2) pair, there is an associated stabilization time (t) that is marked and listed out in a seperate sheet. 
+Data has been collected for parametrised road input and velocity with different damping factors which give various stabilisation times for different damping coefficients. Body is considered stable when the displacement amplitude reaches 2% of its max amplitude. Time-Amplitude data has been extracted in the excel sheet for various combinations of C1 and C2 for given road profile and for every (C1, C2) pair, there is an associated stabilization time (t) that is marked and listed out in a seperate sheet. The wheelbase defines the time of delay between the front and rear bump actions. Parameters taken in this model are of BMW M3, which can be altered according to the simulation.
 
 
 
@@ -73,10 +73,12 @@ The choice of degree of polynomial for regression is made in such a way as neith
 ![3-D Polynomial Regression Model](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/Result_HCM.png)
 
 
->## Conclusion
+>### Further Work
+Half car model can be extended to Full car model with a 7DoF system to perform the analysis for better accuracy of results. 
 
-  
-At any point, the road profile, velocity, spring stiffnesses can be altered in the process for the ease of analysis for various types of systems. 
+
+>## Conclusion
+At any point, the road profile, velocity, spring stiffnesses can be altered in the process for the ease of analysis for various types of systems.
 
   
 
