@@ -54,6 +54,8 @@ For given spring stiffness values, damping coefficients were varied over a range
 
 ![Half Car Model](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/HCM_Simulink.png)
 
+![Sprung and Unsprung Mass Responses in HCM](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/Comparison_HCM.png)
+
 ![Road Profiles](https://github.com/ABHILASHBHARADWAJ-K/Halfcarmodel/blob/main/Roadprofiles_HCM.png)
 
 
